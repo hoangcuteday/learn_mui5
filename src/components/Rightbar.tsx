@@ -3,7 +3,7 @@ import { Box } from "@mui/material";
 function RightBar() {
   return (
     <Box
-      bgcolor="skyblue"
+      bgcolor="white"
       flex="2"
       p={2}
       sx={{ display: { xs: "none", sm: "block" } }}
