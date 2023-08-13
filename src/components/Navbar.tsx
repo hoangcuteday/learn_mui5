@@ -7,11 +7,15 @@ import {
   styled,
   Badge,
   Avatar,
+  Menu,
+  MenuItem,
 } from "@mui/material";
 
 import PetsIcon from "@mui/icons-material/Pets";
 import MailIcon from "@mui/icons-material/Mail";
 import NotificationsIcon from "@mui/icons-material/Notifications";
+import SearchIcon from "@mui/icons-material/Search";
+import { useState } from "react";
 
 const StyledToolbar = styled(Toolbar)({
   display: "flex",
@@ -19,6 +23,9 @@ const StyledToolbar = styled(Toolbar)({
 });
 
 const Search = styled("div")(({ theme }) => ({
+  display: "flex",
+  alignItems: "center",
+  gap: "10px",
   backgroundColor: "white",
   padding: "0 10px",
   width: "40%",
@@ -44,6 +51,9 @@ const UserBox = styled(Box)(({ theme }) => ({
 }));
 
 function Navbar() {
+  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
+  const open = Boolean(anchorEl);
+
   return (
     <AppBar position="static">
       <StyledToolbar>
@@ -52,6 +62,13 @@ function Navbar() {
         </Typography>
         <PetsIcon sx={{ display: { xs: "block", sm: "none" } }} />
         <Search>
+          <SearchIcon
+            fontSize="small"
+            htmlColor="black"
+            sx={{
+              cursor: "pointer",
+            }}
+          />
           <InputBase placeholder="Search...." />
         </Search>
         <Icons>
@@ -61,12 +78,36 @@ function Navbar() {
           <Badge badgeContent={2} color="error">
             <NotificationsIcon />
           </Badge>
-          <Avatar src="https://i.pinimg.com/736x/7f/13/2b/7f132b0fff3efc24e94e63bd5e31f4d5.jpg" />
+          <Avatar
+            sx={{ width: 40, height: 40 }}
+            onClick={(e) => setAnchorEl(e.currentTarget)}
+            src="https://i.pinimg.com/736x/7f/13/2b/7f132b0fff3efc24e94e63bd5e31f4d5.jpg"
+          />
         </Icons>
         <UserBox>
-          <Avatar src="https://i.pinimg.com/736x/7f/13/2b/7f132b0fff3efc24e94e63bd5e31f4d5.jpg" />
+          <Avatar
+            sx={{ width: 40, height: 40 }}
+            onClick={(e) => setAnchorEl(e.currentTarget)}
+            src="https://i.pinimg.com/736x/7f/13/2b/7f132b0fff3efc24e94e63bd5e31f4d5.jpg"
+          />
           <Typography variant="subtitle1">Ai Haibara</Typography>
         </UserBox>
+        <Menu
+          id="basic-menu"
+          anchorEl={anchorEl}
+          open={open}
+          onClose={() => setAnchorEl(null)}
+          MenuListProps={{
+            "aria-labelledby": "basic-button",
+          }}
+          sx={{
+            top: "8px"
+          }}
+        >
+          <MenuItem>Profile</MenuItem>
+          <MenuItem>My account</MenuItem>
+          <MenuItem>Logout</MenuItem>
+        </Menu>
       </StyledToolbar>
     </AppBar>
   );
