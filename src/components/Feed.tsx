@@ -1,11 +1,16 @@
-import {Box} from "@mui/material";
+import { Box } from "@mui/material";
+import Post from "./Post";
 
 function Feed() {
-  return (
-    <Box bgcolor="palevioletred" flex="4" p={2}>
-      Feed
-    </Box>
-  );
+  return <Box flex="4" p={2}>
+    <Post />
+    <Post />
+    <Post />
+    <Post />
+    <Post />
+    <Post />
+    <Post />
+  </Box>;
 }
 
 export default Feed;
