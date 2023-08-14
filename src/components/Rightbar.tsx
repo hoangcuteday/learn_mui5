@@ -15,13 +15,12 @@ import {
 function RightBar() {
   return (
     <Box
-      bgcolor="white"
       flex="2"
       p={2}
       sx={{ display: { xs: "none", sm: "block" } }}
     >
       <Box position="fixed" width={360}>
-        <Typography variant="h6" sx={{ margin: "10px 0" }}>
+        <Typography variant="h6" sx={{ margin: "10px 0", color:"gray" }}>
           Online Friends
         </Typography>
         <AvatarGroup max={4}>
@@ -45,7 +44,7 @@ function RightBar() {
           <Avatar alt="Trevor Henderson" src="/static/images/avatar/5.jpg" />
           <Avatar alt="Trevor Henderson" src="/static/images/avatar/5.jpg" />
         </AvatarGroup>
-        <Typography variant="h6" sx={{ margin: "10px 0" }}>
+        <Typography variant="h6" sx={{ margin: "10px 0", color: "gray" }}>
           Latest Photos
         </Typography>
         <ImageList cols={3} gap={8} rowHeight={140}>
@@ -68,7 +67,7 @@ function RightBar() {
             <img src="https://images.unsplash.com/photo-1597262975002-c5c3b14bbd62?w=161&fit=crop&auto=format&dpr=2" />
           </ImageListItem>
         </ImageList>
-        <Typography variant="h6" sx={{ margin: "10px 0" }}>
+        <Typography variant="h6" sx={{ margin: "10px 0", color: "gray" }}>
           Lastest Conversations
         </Typography>
         <List

@@ -69,7 +69,7 @@ function Navbar() {
               cursor: "pointer",
             }}
           />
-          <InputBase placeholder="Search...." />
+          <InputBase placeholder="Search...." sx={{color: "gray"}} />
         </Search>
         <Icons>
           <Badge badgeContent={4} color="error">

@@ -5,7 +5,7 @@ import {
   ListItemButton,
   ListItemIcon,
   ListItemText,
-  Switch
+  Switch,
 } from "@mui/material";
 import {
   Home,
@@ -18,16 +18,11 @@ import {
   ModeNight,
 } from "@mui/icons-material";
 
-function Sidebar() {
+function Sidebar({ setMode }: { setMode: () => void }) {
   return (
-    <Box
-      bgcolor="white"
-      flex="1"
-      p={2}
-      sx={{ display: { xs: "none", sm: "block" } }}
-    >
+    <Box flex="1" p={2} sx={{ display: { xs: "none", sm: "block" } }}>
       <Box position="fixed">
-        <List>
+        <List sx={{ color: "gray" }}>
           <ListItem disablePadding>
             <ListItemButton component="a" href="/">
               <ListItemIcon>
@@ -89,7 +84,7 @@ function Sidebar() {
               <ListItemIcon>
                 <ModeNight />
               </ListItemIcon>
-              <Switch />
+              <Switch onClick={setMode} />
             </ListItemButton>
           </ListItem>
         </List>
